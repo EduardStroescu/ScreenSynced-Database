@@ -8,6 +8,7 @@
     "start": "node index.js",
     "dev": "nodemon index.js"
   },
+  "keywords": [],
   "author": "Eduard Stroescu",
   "license": "ISC",
   "dependencies": {
