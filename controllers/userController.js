@@ -148,7 +148,17 @@ const updateAvatar = async (req, res) => {
 
     await user.save();
 
-    responseHandler.ok(res, user);
+    const token = jsonwebtoken.sign(
+      { data: user.id },
+      process.env.TOKEN_SECRET_KEY,
+      { expiresIn: "24h" }
+    );
+
+    responseHandler.ok(res, {
+      token,
+      ...user._doc,
+      id: user.id,
+    });
   } catch {
     responseHandler.error(res);
   }
