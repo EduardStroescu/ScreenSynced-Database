@@ -148,7 +148,7 @@ const updateAvatar = async (req, res) => {
 
     await user.save();
 
-    responseHandler.ok(res);
+    responseHandler.ok(res, user);
   } catch {
     responseHandler.error(res);
   }
