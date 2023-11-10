@@ -119,7 +119,7 @@ const updateAvatar = async (req, res) => {
 
     const user = await userModel
       .findById(req.user.id)
-      .select("avatar id username");
+      .select("avatar id username displayName");
 
     if (!user) return responseHandler.unauthorize(res);
 
